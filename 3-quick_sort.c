@@ -15,7 +15,6 @@ int lomutoPartition(int *array, int low, int high, size_t size)
 	int pivot = array[high];
 	int j, i = low - 1;
 	int temp;
-	size_t k;
 
 	for (j = low; j < high; j++)
 	{
@@ -26,15 +25,6 @@ int lomutoPartition(int *array, int low, int high, size_t size)
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
-
-
-			for (k = 0; k < size; k++)
-			{
-				printf("%d", array[k]);
-				if (k < size - 1)
-					printf(", ");
-			}
-			printf("\n");
 		}
 	}
 
@@ -42,14 +32,7 @@ int lomutoPartition(int *array, int low, int high, size_t size)
 	array[i + 1] = array[high];
 	array[high] = temp;
 
-	for (k = 0; k < size; k++)
-	{
-		printf("%d", array[k]);
-		if (k < size - 1)
-			printf(", ");
-	}
-	printf("\n");
-
+	print_array(array, size);
 	return (i + 1);
 }
 
